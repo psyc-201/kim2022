@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jinwoo Lee (jil527@ucsd.edu)">
-<meta name="dcterms.date" content="2025-10-15">
+<meta name="dcterms.date" content="2025-10-25">
 
 <title>Reproduction of Study by Kim &amp; Kim (2022, PNAS)</title>
 <style>
@@ -38,6 +38,35 @@ ul.task-list li input[type="checkbox"] {
 <link href="Replication_Report_Template_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="Replication_Report_Template_files/libs/bootstrap/bootstrap-1e118674f8eeaf0dc11d6faf9a2d8791.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -62,8 +91,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials">Materials</a></li>
   <li><a href="#procedure" id="toc-procedure" class="nav-link" data-scroll-target="#procedure">Procedure</a></li>
   <li><a href="#analysis-plan" id="toc-analysis-plan" class="nav-link" data-scroll-target="#analysis-plan">Analysis Plan</a></li>
+  <li><a href="#reliability-and-validity" id="toc-reliability-and-validity" class="nav-link" data-scroll-target="#reliability-and-validity">Reliability and Validity</a></li>
   <li><a href="#differences-from-original-study" id="toc-differences-from-original-study" class="nav-link" data-scroll-target="#differences-from-original-study">Differences from Original Study</a></li>
-  <li><a href="#methods-addendum-post-data-collection" id="toc-methods-addendum-post-data-collection" class="nav-link" data-scroll-target="#methods-addendum-post-data-collection">Methods Addendum (Post Data Collection)</a></li>
   </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
@@ -100,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 15, 2025</p>
+      <p class="date">October 25, 2025</p>
     </div>
   </div>
   
@@ -117,21 +146,15 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <section id="motivation" class="level3">
 <h3 class="anchored" data-anchor-id="motivation">Motivation</h3>
-<p>For my First Year Project, I aim to extend the <strong>Anna Karenina</strong> model testing framework (Finn et al., 2020 <em>NeuroImage</em>), which is increasingly used as a representative methodology in social and affective neuroscience, into a multivariate approach. This framework will help identify and validate the psychological profiles that best explain the structure of individual differences in brain function or structure. Building on this, during my PhD I plan to apply this framework to naturalistic neuroimaging data to address one of my core theoretical questions: <em>Which combination of psychological profiles best explain individual differences in how the brain encodes emotion concepts? (e.g., combinations of personality traits, cultural backgrounds, emotion knowledges, mental health, etc.)</em></p>
-<p>As a first step, it will be valuable to practice traditional Anna Karenina modeling in affective neuroscience by reproducing key findings from prior studies. I chose Kim &amp; Kim (2022, <em>PNAS</em>) as a target of reproduction project. Using Anna Karenina model, this paper tested the hypothesis that higher trait anxiety would be correlated with greater heterogeneity in morphology of amygdala-vmPFC white matter pathway.</p>
+<p>For my First Year Project, I aim to extend the <strong>Anna Karenina</strong> model testing framework (Finn et al., 2020), which is increasingly used as a representative methodology in social and affective neuroscience, into a multivariate approach. This framework will help identify and validate the psychological profiles that best explain the structure of individual differences in brain function or structure. Building on this, during my PhD I plan to apply this framework to naturalistic neuroimaging data to address one of my core theoretical questions: <em>Which combination of psychological profiles best explain individual differences in how the brain encodes emotion concepts? (e.g., combinations of personality traits, cultural backgrounds, emotion knowledges, mental health, etc.)</em></p>
+<p>As a first step, it will be valuable to practice traditional Anna Karenina modeling in affective neuroscience by reproducing key findings from prior studies. I chose Kim &amp; Kim (2022) as a target of reproduction project. Using Anna Karenina model, this paper tested the hypothesis that higher trait anxiety would be correlated with greater heterogeneity in morphology of amygdala-ventral prefrontal cortex (vPFC) white matter streamline pathway.</p>
 </section>
 <section id="overall-plan" class="level3">
 <h3 class="anchored" data-anchor-id="overall-plan">Overall Plan</h3>
-<p>The ultimate goal of this project is to reproduce the key finding of Kim &amp; Kim (2022, <em>PNAS</em>) using the same dataset, but with analysis scripts that I develop by myself while following the same analytic logics in the paper. The specific finding I aim to replicate is as follows:</p>
+<p>The ultimate goal of this project is to reproduce the key finding of Kim &amp; Kim (2022) using the same dataset, but with analysis scripts that I develop by myself while following the same analytic logics in the paper. The specific finding I aim to replicate is as follows:</p>
 <blockquote class="blockquote">
 <p>Mantel tests revealed that the (young adults’) left amygdala–ventral PFC tract-morphology dissimilarity matrix was significantly correlated with the trait-anxiety dissimilarity matrix (<em>P</em> = 0.036).</p>
 </blockquote>
-<p>To achieve this, the project will proceed in three main steps.</p>
-<ul>
-<li><p>First, <strong>preprocessing and neural analysis:</strong> the diffusion-weighted MRI data of the <em>young adult</em> group (20-35 years old, <em>N</em> = 119) from the LEMON dataset will be preprocessed to compute the left amygdala-ventral PFC tract-morphology dissimilarity matrix across all participant pairs.</p></li>
-<li><p>Second, <strong>behavioral analysis:</strong> Using the same dataset, the pairwise mean trait-anxiety scores for all participant pairs will be calculated.</p></li>
-<li><p>Third, <strong>anna karenina testing:</strong> A Mantel Permutation test between the two matrices obtained above would be applied to reproduce the key finding.</p></li>
-</ul>
 </section>
 <section id="stimuli-procedures-and-expected-challenges" class="level3">
 <h3 class="anchored" data-anchor-id="stimuli-procedures-and-expected-challenges">Stimuli, Procedures, and Expected Challenges</h3>
@@ -142,40 +165,61 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
 <section id="power-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="power-analysis">Power Analysis</h3>
-<p>Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size. Considerations of feasibility for selecting planned sample size.</p>
+<p>(TBD; As noted on <em>Canvas</em>, this section will be updated after Power Analysis is covered in the lecture)</p>
 </section>
 <section id="planned-sample" class="level3">
 <h3 class="anchored" data-anchor-id="planned-sample">Planned Sample</h3>
-<p>Planned sample size and/or termination rule, sampling frame, known demographics if any, preselection rules if any.</p>
+<p>For the reproduction of Kim &amp; Kim (2022), I will use the same sample from the LEMON dataset (Babayan et al., 2019). I will investigate whether the 119 participants (as reported in the original paper) remain available from the initial 153 participants (aged 20-35) after applying the identical exclusion criteria used by Kim &amp; Kim (2022):</p>
+<ul>
+<li><p>Current or history of psychiatric diagnosis assessed through DSM-IV or SCID-I</p></li>
+<li><p>Missing structural or diffusion image data</p></li>
+<li><p>Missing trait anxiety survey data</p></li>
+</ul>
 </section>
 <section id="materials" class="level3">
 <h3 class="anchored" data-anchor-id="materials">Materials</h3>
-<p>All materials - can quote directly from original article - just put the text in quotations and note that this was followed precisely. Or, quote directly and just point out exceptions to what was described in the original article.</p>
+<p>As mentioned in the <strong>‘Planned sample’</strong> section, I will use the LEMON dataset (Babayan et al., 2019). The analysis will leverage age, STAI-G-X2 (self-reported trait anxiety scores), T1 structural images, and diffusion-weighted images (DWI) from the 119 filtered participants. See the <strong>‘Analysis Plan’</strong> section for further details.</p>
 </section>
 <section id="procedure" class="level3">
 <h3 class="anchored" data-anchor-id="procedure">Procedure</h3>
-<p>Can quote directly from original article - just put the text in quotations and note that this was followed precisely. Or, quote directly and just point out exceptions to what was described in the original article.</p>
+<p>As this is a reproduction project, no separate experimental procedure for data collection will be conducted. Please refer to the <strong>‘Analysis Plan’</strong> section for the analysis procedure of the LEMON dataset.</p>
 </section>
 <section id="analysis-plan" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-plan">Analysis Plan</h3>
-<p>Can also quote directly, though it is less often spelled out effectively for an analysis strategy section. The key is to report an analysis strategy that is as close to the original - data cleaning rules, data exclusion rules, covariates, etc. - as possible.</p>
-<p><strong>Clarify key analysis of interest here</strong> You can also pre-specify additional analyses you plan to do.</p>
+<p>This reproduction project will follow the same five main steps as Kim &amp; Kim (2022).</p>
+<section id="image-preprocessing" class="level4">
+<h4 class="anchored" data-anchor-id="image-preprocessing">Image Preprocessing</h4>
+<p><strong>T1-weighted images.</strong> I will use the preprocessed T1 MP2RAGE data provided by the LEMON dataset. This data underwent four processing steps (Babayan et al., 2019): (1) Background removal using CBS Tool. (2) Cortical surface reconstruction using Freesurfer’s <code>recon-all</code> command. (3) Generation of ROI masks based on Freesurfer’s segmentation, followed by nonlinear transformation of each participant’s T1 image to MNI 152 1-mm standard space using the ANTs SyN algorithm. (4) Application of a <code>defacing</code> mask (CBS Tool) to all images for de-identification.</p>
+<p><strong>Diffusion weighted images (DWI).</strong> I will preprocess the DWI data using FSL’s <code>FMRIB</code> Diffusion Toolbox, following the same three steps as Kim &amp; Kim (2022). (1) The <code>topup</code> command will be used with two volumes of reversed phase encoding to infer the distortion correction map, which is then applied to the entire DWI dataset. This systematically corrects for susceptibility-induced distortions. (2) The <code>Brain Extraction Tool (BET)</code> will be used to remove all non-brain tissue (e.g., skull, scalp, eyes) from the images. (3) The <code>eddy</code> command will be used to correct for head motion artifacts and eddy current distortions inherent to DWI.</p>
+<p><strong>Quality check.</strong> Kim &amp; Kim (2022) reported that all their preprocessed data passed standard quality check criteria (i.e., excluding participants with mean head motion &gt; 3mm or total outlier percentage &gt; 5%). As a sanity check of our preprocessing pipeline, I will verify whether all 119 participants possess acceptable quality DWI data after these steps.</p>
+</section>
+<section id="estimation-of-probabilistic-tractography" class="level4">
+<h4 class="anchored" data-anchor-id="estimation-of-probabilistic-tractography">Estimation of Probabilistic Tractography</h4>
+<p>I will estimate each participant’s probabilistic tractography in three steps, identical to Kim &amp; Kim (2022).</p>
+<p>First, I define the left amygdala and vPFC regions. The left amygdala will be defined from each participant’s normalized T1 image using FSL’s FIRST command. The vPFC region will be defined based on the MNI 152 AAL3v1 brain atlas, encompassing both the orbitofrontal cortex and ventromedial prefrontal cortex. To isolate the white matter tract connecting the gray matter of the amygdala and vPFC, I must identify only the vPFC gray matter (as the AAL3v1 atlas includes sub-gyral white matter). To this end, I will mask only voxels with a gray matter probability of 35% or higher.</p>
+<p>Second, I estimate the tractography. FSL’s <code>bedpostx</code> will be run to model the probability of fiber directions within each voxel. Based on this, I will estimate 5,000 streamlines originating from the amygdala to the vPFC and 5,000 streamlines from the vPFC to the amygdala. To minimize false positives, only the common streamlines identified in both directions will be retained.</p>
+<p>Third, I will use slice-level thresholding to minimize false positives and negatives. Traditional global <em>k</em>% thresholding can excessively remove fine tracts near the cortical vPFC. To avoid this, I will segment the entire streamline pathway into thin slices along the y-axis (anterior-posterior) as Kim &amp; Kim (2022) did. Within each slice, the maximum streamline count is determined, and voxels with counts 5% of that slice’s maximum are removed only within that slice. The processed slices are then re-merged into a final tract map using <code>fslmerge</code>.</p>
+</section>
+<section id="neural-dissimilarity-matrix-left-vpfc-amygdala-pathway-morphology" class="level4">
+<h4 class="anchored" data-anchor-id="neural-dissimilarity-matrix-left-vpfc-amygdala-pathway-morphology">Neural Dissimilarity Matrix: Left vPFC-Amygdala Pathway Morphology</h4>
+<p>To quantify the morphological difference between each participant pair’s left vPFC-amygdala pathway, I will adopt the <strong>“canvas space”</strong> concept from Kim &amp; Kim (2022). Canvas space provides a common framework for comparing participants’ unique pathway structures. It is created by registering all participants’ un-thresholded streamline pathways to MNI 2mm standard space and defining the union of all pathways as the canvas. Next, each participant’s thresholded streamline map is aligned within this canvas space. Using <code>fsl2ascii</code>, the voxels are flattened into a 1D vector in a fixed x-y-z order. The streamline count in each voxel is used as the morphological representation. As all participants share the canvas space, their vectors have the same dimension, where each element is a streamline count and its index corresponds to a specific 3D coordinate. Finally, for all possible pairs of participants (119*118/2), the Euclidean distance between their respective morphology representations is calculated. This value serves as the morphology dissimilarity. The resulting 119x119 symmetric matrix is the neural dissimilarity matrix.</p>
+</section>
+<section id="trait-dissimilarity-matrix-trait-anxiety" class="level4">
+<h4 class="anchored" data-anchor-id="trait-dissimilarity-matrix-trait-anxiety">Trait Dissimilarity Matrix: Trait Anxiety</h4>
+<p>For all possible participant-pairs, the mean between their trait anxiety scores is calculated and used as the anxiety dissimilarity value. The resulting 119x119 symmetric matrix is the trait dissimilarity matrix.</p>
+</section>
+<section id="anna-karenina-testing" class="level4">
+<h4 class="anchored" data-anchor-id="anna-karenina-testing">Anna Karenina Testing</h4>
+<p>I will calculate Spearman’s rho between the neural and anxiety dissimilarity matrices. Because the sample unit is participant pairs rather than individuals, the assumption of independence is violated, and a parametric p-value cannot be computed. To overcome this, I will conduct 10,000 times Mantel Permutation Tests to approximate the null distribution of rho as in Kim &amp; Kim, 2022. The empirical p-value will be defined as the proportion of null rho values greater than the observed rho.</p>
+</section>
+</section>
+<section id="reliability-and-validity" class="level3">
+<h3 class="anchored" data-anchor-id="reliability-and-validity">Reliability and Validity</h3>
+<p>The authors did not explicitly report the reliability and validity of self-reported trait anxiety scores (i.e., STAI-G-X2) and image-driven phenotypes (i.e., the streamline count value between the vPFC and amygdala). In the original LEMON dataset paper (Babayan et al., 2019), researchers reported that STAI-G-X2 showed high reliability, as did its psychometric validation work (in LEMON: Cronbach’s <span class="math inline">\(\alpha\)</span> = .91; in validation work: Cronbach’s <span class="math inline">\(\alpha\)</span>: .88 - .94). However, the reliability measure of the image-driven phenotype and the validity measures for both STAI-G-X2 and the image-driven phenotype could not be found anywhere.</p>
 </section>
 <section id="differences-from-original-study" class="level3">
 <h3 class="anchored" data-anchor-id="differences-from-original-study">Differences from Original Study</h3>
-<p>Explicitly describe known differences in sample, setting, procedure, and analysis plan from original study. The goal, of course, is to minimize those differences, but differences will inevitably occur. Also, note whether such differences are anticipated to make a difference based on claims in the original article or subsequent published research on the conditions for obtaining the effect.</p>
-</section>
-<section id="methods-addendum-post-data-collection" class="level3">
-<h3 class="anchored" data-anchor-id="methods-addendum-post-data-collection">Methods Addendum (Post Data Collection)</h3>
-<p>You can comment this section out prior to final report with data collection.</p>
-<section id="actual-sample" class="level4">
-<h4 class="anchored" data-anchor-id="actual-sample">Actual Sample</h4>
-<p>Sample size, demographics, data exclusions based on rules spelled out in analysis plan</p>
-</section>
-<section id="differences-from-pre-data-collection-methods-plan" class="level4">
-<h4 class="anchored" data-anchor-id="differences-from-pre-data-collection-methods-plan">Differences from pre-data collection methods plan</h4>
-<p>Any differences from what was described as the original plan, or “none”.</p>
-</section>
+<p>Since this is a reproducibility project, I will use the same dataset and analytic pipelines.</p>
 </section>
 </section>
 <section id="results" class="level2">
