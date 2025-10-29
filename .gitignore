@@ -61,3 +61,6 @@ rsconnect/
 # pixi environments
 .pixi/*
 !.pixi/config.toml
+
+# data from the authors
+data-from-authors/

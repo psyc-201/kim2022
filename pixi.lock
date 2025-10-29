@@ -155,7 +155,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/ncurses-6.5-h5e97a16_3.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/nest-asyncio-1.6.0-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/notebook-shim-0.2.4-pyhd8ed1ab_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/numpy-2.3.3-py313h9771d21_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/numpy-2.3.4-py313h9771d21_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/openssl-3.5.4-h5503f6c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/overrides-7.7.0-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/packaging-25.0-pyh29332c3_1.conda
@@ -2031,24 +2031,24 @@ packages:
   license_family: BSD
   size: 16817
   timestamp: 1733408419340
-- conda: https://conda.anaconda.org/conda-forge/osx-arm64/numpy-2.3.3-py313h9771d21_0.conda
-  sha256: 0a8d31fbb49be666f17f746104255e3ccfdb27eac79fe9b8178c8f8bd6a6b2ee
-  md5: 54cfeb1b41a3c21da642f9b925545478
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/numpy-2.3.4-py313h9771d21_0.conda
+  sha256: 33c73a156ce2b48cea3a67810832b2eba830f5d0671858789518554582c9b450
+  md5: 1c27b9306edd808fdfc718c0c6c93cf9
   depends:
   - python
-  - libcxx >=19
-  - python 3.13.* *_cp313
   - __osx >=11.0
-  - libcblas >=3.9.0,<4.0a0
+  - python 3.13.* *_cp313
+  - libcxx >=19
   - python_abi 3.13.* *_cp313
   - liblapack >=3.9.0,<4.0a0
   - libblas >=3.9.0,<4.0a0
+  - libcblas >=3.9.0,<4.0a0
   constrains:
   - numpy-base <0a0
   license: BSD-3-Clause
   license_family: BSD
-  size: 6749676
-  timestamp: 1757504939745
+  size: 6751745
+  timestamp: 1761161612340
 - conda: https://conda.anaconda.org/conda-forge/osx-arm64/openssl-3.5.4-h5503f6c_0.conda
   sha256: f0512629f9589392c2fb9733d11e753d0eab8fc7602f96e4d7f3bd95c783eb07
   md5: 71118318f37f717eefe55841adb172fd
