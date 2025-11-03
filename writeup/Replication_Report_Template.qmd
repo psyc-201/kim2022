@@ -27,9 +27,14 @@ I do not expect major challenges in data acquisition, but I anticipate some anal
 
 ## Methods
 
-### Power Analysis
+### A Posteriori Power Analysis
 
-(TBD; As noted on *Canvas*, this section will be updated after Power Analysis is covered in the lecture)
+Since this project is a reproducibility project, I performed *a posteriori* power analysis with the reported effect sizes and sample sizes in Kim & Kim (2022). 
+In the Fig 3a, the authors reported significant correlation coefficients between participants-pairwise trait anxiety mean scores and dissimilarity scores of 
+white matter morphology bridging the left amygdala and vPFC (*r* = [0.05, 0.10]). Based on *r* = 0.10, *N* =  119 (i.e., younger adults group) and $\alpha$ = 0.05, I observed **a posterior power = 0.17 (about 17%).**.    
+
+This means that if *N* = 119 and the real effect size *r* = 0.10, we have about 83% of failing to detect this effect sizes. Theoretically, we need 
+much more sample sizes to capture this limited effect sizes. For example, if we would like to acheive 80% of statistical power, **total 781 samples** are required. 
 
 ### Planned Sample
 
