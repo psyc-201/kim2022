@@ -31,10 +31,9 @@ I do not expect major challenges in data acquisition, but I anticipate some anal
 
 Since this project is a reproducibility project, I performed *a posteriori* power analysis with the reported effect sizes and sample sizes in Kim & Kim (2022). 
 In the Fig 3a, the authors reported significant correlation coefficients between participants-pairwise trait anxiety mean scores and dissimilarity scores of 
-white matter morphology bridging the left amygdala and vPFC (*r* = [0.05, 0.10]). Based on *r* = 0.10, *N* =  119 (i.e., younger adults group) and $\alpha$ = 0.05, I observed **a posterior power = 0.17 (about 17%).**.    
+white matter morphology bridging the left amygdala and vPFC (*r* = [0.05, 0.10]). Based on *r* = 0.10, *N* =  119 (i.e., younger adults group) and $\alpha$ = 0.05, I observed **a posterior power = 0.17 (about 17%).**    
 
-This means that if *N* = 119 and the real effect size *r* = 0.10, we have about 83% of failing to detect this effect sizes. Theoretically, we need 
-much more sample sizes to capture this limited effect sizes. For example, if we would like to acheive 80% of statistical power, **total 781 samples** are required. 
+This means that if *N* = 119 and the real effect size *r* = 0.10, we have about 83% of failing to detect this effect sizes. Theoretically, we need much more sample sizes to capture this limited effect sizes. For example, if we would like to acheive 80% of statistical power, **total 781 samples** are required. 
 
 ### Planned Sample
 
@@ -93,9 +92,27 @@ The authors did not explicitly report the reliability and validity of self-repor
 
 
 ### Differences from Original Study
+Since this is a reproducibility project, I will use the same dataset and analytic pipelines.    
 
-Since this is a reproducibility project, I will use the same dataset and analytic pipelines. 
+## Project Progress Check 1
 
+### Outcome measurement: criteria for evaluating reproduction success    
+In determining whether reproduction was successful, I will assess whether the key findings mentioned in the *Overall Plan* section can be reproduced using the shared preprocessed dataset, whether the same Spearman’s rho and the *P*-value obtained from 10,000 permutation tests can be accurately observed.
+
+Since permutation tests are affected by random seeds, and unlike the original analysis (which was conducted in R), the current project is being conducted entirely in Python, it may not be possible to perfectly control all randomness inherent in the permutation procedure. Considering this, statistical significance will not be evaluated based on the exact reproduction of the original *P*-value, but rather on **whether Spearman’s rho shows statistical significance at the $\alpha$ = .05 level**, as in the original results. This will serve as the criterion for replication success.
+
+### Current progress by analysis step    
+As of **Nov 5th, 2025**, the progress for each of the five analytical steps described in the *Analysis Plan* section is as follows:
+
+- **Image Preprocessing:** To ensure accurate reproduction, I directly requested the preprocessed image-driven phenotypes (IDPs) from the original authors and successfully received the shared data. Therefore, this step has been automatically completed.
+
+- **Estimation of Probabilistic Tractography:** Since all preprocessed IDPs were provided, this step has also been automatically completed.
+
+- **Neural Dissimilarity Matrix – Left vPFC-Amygdala Pathway Morphology:** Using the shared IDPs, I successfully computed the pairwise dissimilarity matrix for all 119 participants (i.e., a 119 × 119 distance matrix; see `../code/01-data-sanity-check.ipynb`).
+
+- **Trait Dissimilarity Matrix – Trait Anxiety**: Based on the shared self-reported trait anxiety data, I successfully computed the pairwise dissimilarity matrix for all 119 participants (i.e., a 119 × 119 distance matrix; see `../code/01-data-sanity-check.ipynb`).
+
+- **Anna Karenina Testing:** I am currently developing a Python module that takes the two distance matrices as input, computes Spearman’s rho between them, and evaluates its statistical significance through *n* permutation tests.
 
 ## Results
 

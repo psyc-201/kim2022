@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jinwoo Lee (jil527@ucsd.edu)">
-<meta name="dcterms.date" content="2025-11-03">
+<meta name="dcterms.date" content="2025-11-05">
 
 <title>Reproduction of Study by Kim &amp; Kim (2022, PNAS)</title>
 <style>
@@ -94,6 +94,11 @@ window.Quarto = {
   <li><a href="#reliability-and-validity" id="toc-reliability-and-validity" class="nav-link" data-scroll-target="#reliability-and-validity">Reliability and Validity</a></li>
   <li><a href="#differences-from-original-study" id="toc-differences-from-original-study" class="nav-link" data-scroll-target="#differences-from-original-study">Differences from Original Study</a></li>
   </ul></li>
+  <li><a href="#project-progress-check-1" id="toc-project-progress-check-1" class="nav-link" data-scroll-target="#project-progress-check-1">Project Progress Check 1</a>
+  <ul class="collapse">
+  <li><a href="#outcome-measurement-criteria-for-evaluating-reproduction-success" id="toc-outcome-measurement-criteria-for-evaluating-reproduction-success" class="nav-link" data-scroll-target="#outcome-measurement-criteria-for-evaluating-reproduction-success">Outcome measurement: criteria for evaluating reproduction success</a></li>
+  <li><a href="#current-progress-by-analysis-step" id="toc-current-progress-by-analysis-step" class="nav-link" data-scroll-target="#current-progress-by-analysis-step">Current progress by analysis step</a></li>
+  </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
   <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data preparation</a></li>
@@ -129,7 +134,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 3, 2025</p>
+      <p class="date">November 5, 2025</p>
     </div>
   </div>
   
@@ -165,7 +170,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
 <section id="a-posteriori-power-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="a-posteriori-power-analysis">A Posteriori Power Analysis</h3>
-<p>Since this project is a reproducibility project, I performed <em>a posteriori</em> power analysis with the reported effect sizes and sample sizes in Kim &amp; Kim (2022). In the Fig 3a, the authors reported significant correlation coefficients between participants-pairwise trait anxiety mean scores and dissimilarity scores of white matter morphology bridging the left amygdala and vPFC (<em>r</em> = [0.05, 0.10]). Based on <em>r</em> = 0.10, <em>N</em> = 119 (i.e., younger adults group) and <span class="math inline">\(\alpha\)</span> = 0.05, I observed <strong>a posterior power = 0.17 (about 17%).</strong>.</p>
+<p>Since this project is a reproducibility project, I performed <em>a posteriori</em> power analysis with the reported effect sizes and sample sizes in Kim &amp; Kim (2022). In the Fig 3a, the authors reported significant correlation coefficients between participants-pairwise trait anxiety mean scores and dissimilarity scores of white matter morphology bridging the left amygdala and vPFC (<em>r</em> = [0.05, 0.10]). Based on <em>r</em> = 0.10, <em>N</em> = 119 (i.e., younger adults group) and <span class="math inline">\(\alpha\)</span> = 0.05, I observed <strong>a posterior power = 0.17 (about 17%).</strong></p>
 <p>This means that if <em>N</em> = 119 and the real effect size <em>r</em> = 0.10, we have about 83% of failing to detect this effect sizes. Theoretically, we need much more sample sizes to capture this limited effect sizes. For example, if we would like to acheive 80% of statistical power, <strong>total 781 samples</strong> are required.</p>
 </section>
 <section id="planned-sample" class="level3">
@@ -221,6 +226,25 @@ window.Quarto = {
 <section id="differences-from-original-study" class="level3">
 <h3 class="anchored" data-anchor-id="differences-from-original-study">Differences from Original Study</h3>
 <p>Since this is a reproducibility project, I will use the same dataset and analytic pipelines.</p>
+</section>
+</section>
+<section id="project-progress-check-1" class="level2">
+<h2 class="anchored" data-anchor-id="project-progress-check-1">Project Progress Check 1</h2>
+<section id="outcome-measurement-criteria-for-evaluating-reproduction-success" class="level3">
+<h3 class="anchored" data-anchor-id="outcome-measurement-criteria-for-evaluating-reproduction-success">Outcome measurement: criteria for evaluating reproduction success</h3>
+<p>In determining whether reproduction was successful, I will assess whether the key findings mentioned in the <em>Overall Plan</em> section can be reproduced using the shared preprocessed dataset, whether the same Spearman’s rho and the <em>P</em>-value obtained from 10,000 permutation tests can be accurately observed.</p>
+<p>Since permutation tests are affected by random seeds, and unlike the original analysis (which was conducted in R), the current project is being conducted entirely in Python, it may not be possible to perfectly control all randomness inherent in the permutation procedure. Considering this, statistical significance will not be evaluated based on the exact reproduction of the original <em>P</em>-value, but rather on <strong>whether Spearman’s rho shows statistical significance at the <span class="math inline">\(\alpha\)</span> = .05 level</strong>, as in the original results. This will serve as the criterion for replication success.</p>
+</section>
+<section id="current-progress-by-analysis-step" class="level3">
+<h3 class="anchored" data-anchor-id="current-progress-by-analysis-step">Current progress by analysis step</h3>
+<p>As of <strong>Nov 5th, 2025</strong>, the progress for each of the five analytical steps described in the <em>Analysis Plan</em> section is as follows:</p>
+<ul>
+<li><p><strong>Image Preprocessing:</strong> To ensure accurate reproduction, I directly requested the preprocessed image-driven phenotypes (IDPs) from the original authors and successfully received the shared data. Therefore, this step has been automatically completed.</p></li>
+<li><p><strong>Estimation of Probabilistic Tractography:</strong> Since all preprocessed IDPs were provided, this step has also been automatically completed.</p></li>
+<li><p><strong>Neural Dissimilarity Matrix – Left vPFC-Amygdala Pathway Morphology:</strong> Using the shared IDPs, I successfully computed the pairwise dissimilarity matrix for all 119 participants (i.e., a 119 × 119 distance matrix; see <code>../code/01-data-sanity-check.ipynb</code>).</p></li>
+<li><p><strong>Trait Dissimilarity Matrix – Trait Anxiety</strong>: Based on the shared self-reported trait anxiety data, I successfully computed the pairwise dissimilarity matrix for all 119 participants (i.e., a 119 × 119 distance matrix; see <code>../code/01-data-sanity-check.ipynb</code>).</p></li>
+<li><p><strong>Anna Karenina Testing:</strong> I am currently developing a Python module that takes the two distance matrices as input, computes Spearman’s rho between them, and evaluates its statistical significance through <em>n</em> permutation tests.</p></li>
+</ul>
 </section>
 </section>
 <section id="results" class="level2">
