@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jinwoo Lee (jil527@ucsd.edu)">
-<meta name="dcterms.date" content="2025-11-05">
+<meta name="dcterms.date" content="2025-11-12">
 
 <title>Reproduction of Study by Kim &amp; Kim (2022, PNAS)</title>
 <style>
@@ -94,11 +94,12 @@ window.Quarto = {
   <li><a href="#reliability-and-validity" id="toc-reliability-and-validity" class="nav-link" data-scroll-target="#reliability-and-validity">Reliability and Validity</a></li>
   <li><a href="#differences-from-original-study" id="toc-differences-from-original-study" class="nav-link" data-scroll-target="#differences-from-original-study">Differences from Original Study</a></li>
   </ul></li>
-  <li><a href="#project-progress-check-1" id="toc-project-progress-check-1" class="nav-link" data-scroll-target="#project-progress-check-1">Project Progress Check 1</a>
+  <li><a href="#project-progress-2-nov-5th-2025" id="toc-project-progress-2-nov-5th-2025" class="nav-link" data-scroll-target="#project-progress-2-nov-5th-2025">Project Progress #2 (Nov 5th, 2025)</a>
   <ul class="collapse">
   <li><a href="#outcome-measurement-criteria-for-evaluating-reproduction-success" id="toc-outcome-measurement-criteria-for-evaluating-reproduction-success" class="nav-link" data-scroll-target="#outcome-measurement-criteria-for-evaluating-reproduction-success">Outcome measurement: criteria for evaluating reproduction success</a></li>
   <li><a href="#current-progress-by-analysis-step" id="toc-current-progress-by-analysis-step" class="nav-link" data-scroll-target="#current-progress-by-analysis-step">Current progress by analysis step</a></li>
   </ul></li>
+  <li><a href="#project-progress-3-nov-11th-2025" id="toc-project-progress-3-nov-11th-2025" class="nav-link" data-scroll-target="#project-progress-3-nov-11th-2025">Project Progress #3 (Nov 11th, 2025)</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
   <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data preparation</a></li>
@@ -134,7 +135,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 5, 2025</p>
+      <p class="date">November 12, 2025</p>
     </div>
   </div>
   
@@ -228,8 +229,8 @@ window.Quarto = {
 <p>Since this is a reproducibility project, I will use the same dataset and analytic pipelines.</p>
 </section>
 </section>
-<section id="project-progress-check-1" class="level2">
-<h2 class="anchored" data-anchor-id="project-progress-check-1">Project Progress Check 1</h2>
+<section id="project-progress-2-nov-5th-2025" class="level2">
+<h2 class="anchored" data-anchor-id="project-progress-2-nov-5th-2025">Project Progress #2 (Nov 5th, 2025)</h2>
 <section id="outcome-measurement-criteria-for-evaluating-reproduction-success" class="level3">
 <h3 class="anchored" data-anchor-id="outcome-measurement-criteria-for-evaluating-reproduction-success">Outcome measurement: criteria for evaluating reproduction success</h3>
 <p>In determining whether reproduction was successful, I will assess whether the key findings mentioned in the <em>Overall Plan</em> section can be reproduced using the shared preprocessed dataset, whether the same Spearman’s rho and the <em>P</em>-value obtained from 10,000 permutation tests can be accurately observed.</p>
@@ -246,6 +247,16 @@ window.Quarto = {
 <li><p><strong>Anna Karenina Testing:</strong> I am currently developing a Python module that takes the two distance matrices as input, computes Spearman’s rho between them, and evaluates its statistical significance through <em>n</em> permutation tests.</p></li>
 </ul>
 </section>
+</section>
+<section id="project-progress-3-nov-11th-2025" class="level2">
+<h2 class="anchored" data-anchor-id="project-progress-3-nov-11th-2025">Project Progress #3 (Nov 11th, 2025)</h2>
+<p>I completed the final action item of the Project Progress #2, <strong>Anna Karenina Testing</strong> (as of Nov 12th, 2025). Through this, I <strong>successfully reproduced</strong> the key results of Kim &amp; Kim (2022) according to the a priori evaluation criteria for <em>“Outcome measurement: criteria for evaluating reproduction success.”</em> (please see <code>../code/03_reproduction-with-ours.ipynb</code> for details and results on the analytic pipelines).</p>
+<p>Specifically, regarding the correlation between the mean trait anxiety matrix across participant pairs and the left vPFC–amygdala morphology distance matrix, the R script shared by the authors and my self-developed Python package <code>DIM</code> produced nearly identical results, as shown below:</p>
+<ul>
+<li><p>Authors’ original code: <em>ρ</em> = .148, <em>P</em> = .041</p></li>
+<li><p>Self-developed code: <em>ρ</em> = .148, <em>P</em> = .042</p></li>
+</ul>
+<p>For the remaining period, I plan to proceed with the <strong>simulation analysis</strong>, as suggested by Bria.</p>
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
