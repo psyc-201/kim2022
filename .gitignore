@@ -64,7 +64,8 @@ rsconnect/
 
 # data from the authors
 data-from-authors/
-Behavioural_Data_MPILMBB_LEMON
+
+Behavioural_Data_MPILMBB_LEMON/
 
 # on-going work
 code/05_explanatory-analysis-with-ours.ipynb
