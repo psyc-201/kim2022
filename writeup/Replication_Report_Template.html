@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jinwoo Lee (jil527@ucsd.edu)">
-<meta name="dcterms.date" content="2025-11-12">
+<meta name="dcterms.date" content="2025-11-19">
 
 <title>Reproduction of Study by Kim &amp; Kim (2022, PNAS)</title>
 <style>
@@ -100,6 +100,7 @@ window.Quarto = {
   <li><a href="#current-progress-by-analysis-step" id="toc-current-progress-by-analysis-step" class="nav-link" data-scroll-target="#current-progress-by-analysis-step">Current progress by analysis step</a></li>
   </ul></li>
   <li><a href="#project-progress-3-nov-11th-2025" id="toc-project-progress-3-nov-11th-2025" class="nav-link" data-scroll-target="#project-progress-3-nov-11th-2025">Project Progress #3 (Nov 11th, 2025)</a></li>
+  <li><a href="#final-ready-to-run-progress-nov-19th-2025" id="toc-final-ready-to-run-progress-nov-19th-2025" class="nav-link" data-scroll-target="#final-ready-to-run-progress-nov-19th-2025">Final “Ready to Run” Progress (Nov 19th, 2025)</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
   <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data preparation</a></li>
@@ -135,7 +136,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 12, 2025</p>
+      <p class="date">November 19, 2025</p>
     </div>
   </div>
   
@@ -148,6 +149,14 @@ window.Quarto = {
 
 
 <!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
+<section id="links" class="level4">
+<h4 class="anchored" data-anchor-id="links">Links</h4>
+<ul>
+<li>Github Repository: https://github.com/psyc-201/kim2022<br>
+</li>
+<li>OSF Preregistration: <em>TBD</em> (DOI link has not been issued yet)</li>
+</ul>
+</section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <section id="motivation" class="level3">
@@ -257,6 +266,10 @@ window.Quarto = {
 <li><p>Self-developed code: <em>ρ</em> = .148, <em>P</em> = .042</p></li>
 </ul>
 <p>For the remaining period, I plan to proceed with the <strong>simulation analysis</strong>, as suggested by Bria.</p>
+</section>
+<section id="final-ready-to-run-progress-nov-19th-2025" class="level2">
+<h2 class="anchored" data-anchor-id="final-ready-to-run-progress-nov-19th-2025">Final “Ready to Run” Progress (Nov 19th, 2025)</h2>
+<p>I completed the last action item, data simulation. Particularly, I find the best distribution function and parameters of the observed dataset which minimize the squared sum error value and simulate them using the identified function. With these simulated dataset, I could observed the similar finding with the original paper (the original: = .148; simulated: = .160). Please refer to <code>../code/04_data-simulation.ipynb</code>.</p>
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>

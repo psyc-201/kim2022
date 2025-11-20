@@ -10,6 +10,10 @@ format:
 
 <!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
 
+#### Links 
+- Github Repository: https://github.com/psyc-201/kim2022      
+- OSF Preregistration: *TBD* (DOI link has not been issued yet)    
+
 ## Introduction
 ### Motivation
 For my First Year Project, I aim to extend the **Anna Karenina** model testing framework (Finn et al., 2020), which is increasingly used as a representative methodology in social and affective neuroscience, into a multivariate approach. This framework will help identify and validate the psychological profiles that best explain the structure of individual differences in brain function or structure. Building on this, during my PhD I plan to apply this framework to naturalistic neuroimaging data to address one of my core theoretical questions: *Which combination of psychological profiles best explain individual differences in how the brain encodes emotion concepts? (e.g., combinations of personality traits, cultural backgrounds, emotion knowledges, mental health, etc.)*
@@ -125,6 +129,11 @@ Specifically, regarding the correlation between the mean trait anxiety matrix ac
 - Self-developed code: *ρ* = .148, *P* = .042         
 
 For the remaining period, I plan to proceed with the **simulation analysis**, as suggested by Bria.
+
+
+## Final "Ready to Run" Progress (Nov 19th, 2025)
+I completed the last action item, data simulation. Particularly, I find the best distribution function and parameters of the observed dataset which minimize the squared sum error value and simulate them using the identified function. With these simulated dataset, I could observed the similar finding with the original paper (the original: \rho = .148; simulated: \rho = .160). Please refer to `../code/04_data-simulation.ipynb`. 
+
 
 ## Results
 
