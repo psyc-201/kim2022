@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jinwoo Lee">
-<meta name="dcterms.date" content="2024-12-10">
+<meta name="dcterms.date" content="2025-12-10">
 
 <title>Reproducing and Extending Anna Karenina Modeling in Kim &amp; Kim (2022 PNAS)</title>
 <style>
@@ -159,7 +159,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 10, 2024</p>
+      <p class="date">December 10, 2025</p>
     </div>
   </div>
   
@@ -293,7 +293,7 @@ window.Quarto = {
 <section id="young-adults-group-discovery-set" class="level4">
 <h4 class="anchored" data-anchor-id="young-adults-group-discovery-set">3.1.1. Young adults group: discovery set</h4>
 <p>Using the code below, we prepared data for 119 young adults following Kim &amp; Kim (2022). Specifically, we created <code>X_discovery</code> (119, 5) and <code>D_y_discovery</code>, an intersubject morphological dissimilarity matrix (119, 119). <code>X_discovery</code> includes five variables in order: anxiety, reappraisal, suppression, neuroticism, and impulsivity.</p>
-<div id="88afd65c" class="cell" data-execution_count="1">
+<div id="ee2a4218" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.spatial.distance <span class="im">import</span> pdist, squareform</span>
@@ -365,7 +365,7 @@ The number of NaN in D_y_discovery = 0</code></pre>
 <section id="older-adults-group-replicate-set" class="level4">
 <h4 class="anchored" data-anchor-id="older-adults-group-replicate-set">3.1.2. Older adults group: replicate set</h4>
 <p>Using the code below, we prepared data for 45 young adults following Kim &amp; Kim (2022). Specifically, we created <code>X_replicate</code> (45, 5) and <code>D_y_replicate</code>, an intersubject morphological dissimilarity matrix (45, 45). <code>X_replicate</code> includes five variables in order: anxiety, reappraisal, suppression, neuroticism, and impulsivity, as <code>X_discovery</code> does.</p>
-<div id="53428f3b" class="cell" data-execution_count="2">
+<div id="9a7ce06b" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">##### PART I. SELF-REPORTED MEASUREMENTS ========================================================================</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">### I.1. Sample Filtering</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># age</span></span>
