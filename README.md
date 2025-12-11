@@ -20,7 +20,8 @@ All dependencies required to run the code are stored in a **Pixi-based** virtual
 2. Activate the Pixi-based virtual environment in your local machine: `pixi shell`.    
 3. When using Jupyter, select the kernel named “**Python (kim2024)**” or "**R**".    
 
-Also, the key analytic package - `DIM` is on-going project in [UCSD SciMinds Research Studio](https://www.sciminds.studio/). For this reason, the directory of `DIM` was not shared in this repository. For the sharing request, please contact the project lead: Jinwoo Lee ([jil527@ucsd.edu](jil527@ucsd.edu)).
+> [!CAUTION]
+> Also, the key analytic package - `DIM` is on-going project in [UCSD SciMinds Research Studio](https://www.sciminds.studio/). For this reason, the directory of `DIM` was not shared in this repository. For the sharing request, please contact the project lead: Jinwoo Lee ([jil527@ucsd.edu](jil527@ucsd.edu)).
 
 ## Data Availability    
 This project assumes the presence of two datasets:
