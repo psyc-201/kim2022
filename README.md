@@ -1,4 +1,4 @@
-# Reproduction: Kim & Kim (2022 *PNAS*) | UCSD PSYC201A
+# Reproduction: Kim & Kim (2022) | UCSD PSYC201A
 
 written by **Jinwoo Lee** ([jil527@ucsd.edu](jil527@ucsd.edu))
 
