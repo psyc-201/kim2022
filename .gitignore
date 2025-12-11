@@ -66,3 +66,6 @@ rsconnect/
 # data from the authors
 data-from-authors/
 Behavioural_Data_MPILMBB_LEMON/
+
+.gitattributes
+.gitignore
