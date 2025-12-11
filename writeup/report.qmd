@@ -5,7 +5,7 @@ author:
     url: https://jinwoo-lee.com
     orcid: 0009-0005-3811-0015
     email: jil527@ucsd.edu
-date: "`r format(Sys.time(), '%B %d, %Y')`"
+date: "December 10, 2025"
 format:
   html:
     toc: true
@@ -245,9 +245,9 @@ print(
 
 ### 3.2. Confirmatory Analysis
 #### 3.2.1. Reproduction of young adults analysis
-Using the weighting fixation feature of `DIM`, we conducted Anna Karenina model testing with a single STAI-G-X2 variable, following Kim & Kim (2022). We then performed 10,000 iterations of a right-tailed Mantel permutation test to assess statistical significance. Please see `analysis/reproduction-with-ours.ipynb` for the detailed scripts. 
+Using the weighting fixation feature of `DIM`, we conducted Anna Karenina model testing with a single STAI-G-X2 variable, following Kim & Kim (2022). We then performed 10,000 iterations of a right-tailed Mantel permutation test to assess statistical significance. Please see [`analysis/reproduction-with-ours.ipynb`](https://github.com/psyc-201/kim2022/blob/main/analysis/reproduction-with-ours.ipynb) for the detailed scripts. 
 
-Our `DIM` satisfied the a-posteriori reproducibility criteria (see **'2.4.3. Confirmatory analysis'**) and successfully replicated the main findings for young adults reported in the original paper (see **Fig 2**). A comparison between the authors’ R-based results and our results is as follows (see `analysis/reproduction-with-authors.ipynb` in the repository for a result of authors' R-based script):
+Our `DIM` satisfied the a-posteriori reproducibility criteria (see **'2.4.3. Confirmatory analysis'**) and successfully replicated the main findings for young adults reported in the original paper (see **Fig 2**). A comparison between the authors’ R-based results and our results is as follows (see [`analysis/reproduction-with-authors.ipynb`](https://github.com/psyc-201/kim2022/blob/main/analysis/reproduction-with-authors.ipynb) in the repository for a result of authors' R-based script):
 
 - **Authors:** $\rho = .148, P = .042$
 - **Ours:** $\rho = .148, P = .043$
@@ -258,9 +258,9 @@ Our `DIM` satisfied the a-posteriori reproducibility criteria (see **'2.4.3. Con
 
 
 #### 3.2.2. Reproduction of older adults analysis
-We did perform the same confirmatory analysis with **3.2.1. Reproduction of young adults analysis** using older group's data. Please see `analysis/reproduction-with-ours.ipynb` for the detailed scripts.
+We did perform the same confirmatory analysis with **3.2.1. Reproduction of young adults analysis** using older group's data. Please see [`analysis/reproduction-with-ours.ipynb`](https://github.com/psyc-201/kim2022/blob/main/analysis/reproduction-with-ours.ipynb) for the detailed scripts.
 
-Our `DIM` satisfied the a-posteriori reproducibility criteria and successfully replicated the main findings for older adults reported in the original paper (see **Fig 3**). A comparison between the authors’ R-based results and our results is as follows (see `analysis/reproduction-with-authors.ipynb` in the repository for a result of authors' R-based script):
+Our `DIM` satisfied the a-posteriori reproducibility criteria and successfully replicated the main findings for older adults reported in the original paper (see **Fig 3**). A comparison between the authors’ R-based results and our results is as follows (see [`analysis/reproduction-with-authors.ipynb`](https://github.com/psyc-201/kim2022/blob/main/analysis/reproduction-with-authors.ipynb) in the repository for a result of authors' R-based script):
 
 - **Authors:** $\rho = .294, P = .016$
 - **Ours:** $\rho = .294, P = .017$
@@ -272,7 +272,7 @@ Our `DIM` satisfied the a-posteriori reproducibility criteria and successfully r
 
 ### 3.3. Exploratory Analysis
 #### 3.3.1. Model discovery and interpretation
-We extended our model by adding four additional variables—reappraisal, suppression, neuroticism, and impulsivity—on top of trait anxiety, and learned a composite score using the DIM’s weight-learning approach (see `analysis/exploration-with-ours.ipynb` for detailed analytic pipeline). Compared to a hypothetical model that relied solely on the anxiety variable, this composite model showed nearly twice the correlation with the brain dissimilarity matrix in the discovery set ($\rho$ = .278; see **Fig 4**).
+We extended our model by adding four additional variables—reappraisal, suppression, neuroticism, and impulsivity—on top of trait anxiety, and learned a composite score using the DIM’s weight-learning approach (see [`analysis/exploration-with-ours.ipynb`](https://github.com/psyc-201/kim2022/blob/main/analysis/exploratory-with-ours.ipynb) for detailed analytic pipeline). Compared to a hypothetical model that relied solely on the anxiety variable, this composite model showed nearly twice the correlation with the brain dissimilarity matrix in the discovery set ($\rho$ = .278; see **Fig 4**).
 
 ::: {.figure}
 ![**Fig 4. Exploratory results of older group analysis (discovery set)** The left scatterplot illustrates anxiety-focused hypothesis testing results using weight-fixing DIM; the right panel depicts hypothesis generation results for five variables using weight-learning DIM.](figures/fig4.png)
@@ -288,7 +288,7 @@ Meanwhile, we examined the 95% confidence intervals of the weights for each self
 
 
 #### 3.3.2. Generalizability testing
-To evaluate whether the strong correlation observed in the DIM-trained model could also be detected in an independent older-adults group, we applied the trained model to that dataset without any additional training and estimated the resulting correlation. We then assessed its statistical significance using 10,000 permutation tests (see `analysis/exploration-with-ours.ipynb` for analytic procedures).
+To evaluate whether the strong correlation observed in the DIM-trained model could also be detected in an independent older-adults group, we applied the trained model to that dataset without any additional training and estimated the resulting correlation. We then assessed its statistical significance using 10,000 permutation tests (see [`analysis/exploration-with-ours.ipynb`](https://github.com/psyc-201/kim2022/blob/main/analysis/exploratory-with-ours.ipynb) for analytic procedures).
 
 The trained model successfully produced a strong and significant correlation between the composite-score mean matrix and the brain dissimilarity matrix in the older-adults group as well, implying that the model did not overfit the training dataset ($\rho$ = .319, $P$ = .011; see **Fig 6**).
 
@@ -332,6 +332,8 @@ Genon, S., Eickhoff, S. B., & Kharabian, S. (2022). Linking interindividual vari
 Hastie, T., Tibshirani, R., & Friedman, J. (2008). Model assessment and selection. In The elements of statistical learning: data mining, inference, and prediction (pp. 219-259). New York, NY: Springer New York.
 
 Kharabian Masouleh S, Eickhoff SB, Hoffstaedter F, Genon S, Initiative ADN. Empirical examination of the replicability of associations between brain structure and psychological variables. Elife. 2019;8:e43464.
+
+Lee, J. & Jolly, E. DIM: Differentiable idiosyncrasy modeling for more flexble, selective, and comprehensive intersubject representational similarity analysis. in preparation.
 
 Marek S, Tervo-Clemmens B, Calabro FJ, Montez DF, Kay BP, Hatoum AS, et al. Reproducible brain-wide association studies require thousands of individuals. Nature. 2022;603:654–60.
 
