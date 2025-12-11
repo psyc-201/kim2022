@@ -57,15 +57,12 @@ rsconnect/
 *_files/
 # html files (output by Quarto)
 # *.html   -> to upload rendered html files, uncomment this line
-# .DS_Store
+.DS_Store
+
 # pixi environments
 .pixi/*
 !.pixi/config.toml
 
 # data from the authors
 data-from-authors/
-
 Behavioural_Data_MPILMBB_LEMON/
-
-# on-going work
-code/05_explanatory-analysis-with-ours.ipynb
